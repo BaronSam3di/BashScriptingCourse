@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+# This is an example of trap DEBUG
+
+function errorneous
+{
+    echo The error is $error
+}
+
+trap DEBUG          # open the debug section
+
+echo this line is ok
+errorneous          # this is broken
+trap - DEBUG
+echo this line is also good

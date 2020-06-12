@@ -1,0 +1,5 @@
+#!/bin/bash
+
+for ip in $(seq 200 210); do
+  nc -n -v -z -w 1 192.168.11.$ip 80 2>&1 | grep open
+done
