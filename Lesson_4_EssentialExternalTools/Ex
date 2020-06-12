@@ -1,0 +1,10 @@
+#!/bin/bash
+#
+# This is the exersise from chapter 4
+#
+echo
+echo ' The task is to create a script that transforms the string cn=lara,dc=example,dc=com in a way that the user name (laral) is extracted from the string. Also make sure that the result is written in all lowercase. Sotre the username in the varibale USER and at the end of the script, echo the value of this variable.'
+
+STRING="cn=lara,dc=example,dc=co cut $STRING -d '=' -f 1 
+echo $STRING
+

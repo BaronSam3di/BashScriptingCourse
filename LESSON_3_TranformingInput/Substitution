@@ -1,0 +1,80 @@
+#!/bin/bash
+#
+#
+
+echo ------Section1-----
+echo 'The Command ${VAR#pattern} will search from the beginning of the variable value, delete the SHORTEST part that matches, and return the rest'
+echo
+echo 'This is the code we will test with
+DATE=$(date +%d-%m-%y)
+echo the day is ${DATE:0:2}'
+
+echo  
+DATE=$(date +%d-%m-%y)
+echo the day is ${DATE:0:2}
+
+
+echo
+echo ------Section2------
+echo 'The Command ${VAR#pattern} will search from the beginning of the variable value, delete the LONGEST part that matches, and return the rest'
+echo
+echo 'This is the code we will test with
+
+FILENAME=/usr/bin/blah
+echo ${FILENAME##*/}
+'
+FILENAME=/usr/bin/blah
+echo ${FILENAME#*/}
+echo
+
+echo '----- Section 3 -----'
+echo 'The Command ${VAR%pattern} matches the END of the variable value , delete the SHORTEST part that matches, and returns the rest.'
+echo
+echo'This is the code we will test with 
+
+FILENAME=/usr/bin/blah'
+echo '${FILENAME%%/*}'
+echo
+FILENAME=/usr/bin/blah
+echo ${FILENAME%%/*}
+
+echo '----- Section 4 -----'
+echo
+echo 'INPUTSTRING=rababarabarabarara
+
+The result of ##*ba is ${INPUTSTRING##*ba}
+The result of #*ba is ${INPUTSTRING#*ba}
+The result of %%*ba is ${INPUTSTRING%%ba*}
+The result of %*ba is ${INPUTSTRING%ba*}'
+
+echo 
+
+INPUTSTRING=rababarabarabarara
+echo
+echo INPUTSTRING is $INPUTSTRING
+echo 'The result of ##*ba is' ${INPUTSTRING##*ba}
+echo 'The result of #*ba is' ${INPUTSTRING#*ba}
+echo 'The result of %%*ba is' ${INPUTSTRING%%ba*}
+echo 'The result of %*ba is' ${INPUTSTRING%ba*}
+
+echo '------ section 5 : Regular expression -----'
+echo
+echo 'Regular expression are not the smae as shell wild cards'
+echo 
+echo '^test        :: Line Starts with test'
+echo 'text$        :: Line ends with text'
+echo '.            :: Wildcard (matches any single charachter'
+echo '[abc}, [a-c] :: Either matches a,b,or c'
+echo '*            :: Matches 0 to an infinite number of the previous chars'
+echo '\{2\}        :: Matches exactly 2 of the previous character'
+echo '\{1,3}\      :: Matches a minimum of 1 and a maximum of 3 of the previous characher)'
+echo 'colou?r      :: Match 0 or 1 of the previous character (which makes the previous character optional. This example allows for the identification os the UK and US spelling of colour'
+
+
+echo
+echo '------ Section 6 : Calculating -----'
+echo
+echo ' You can do Internal Calculation such as $(( 1 + 1 )) withthe double braces'
+echo
+echo ' bc is an external calculator intereface'
+

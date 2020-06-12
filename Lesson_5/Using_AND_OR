@@ -1,0 +1,4 @@
+#!/bin/bash
+
+[ -d $1 ] && echo $1 is a directory
+[ -f $1 ] && echo $1 is a file || echo $1 is not a file, no a directory 

@@ -1,0 +1,16 @@
+#!/bin/bash
+echo 'Select a directory: '
+select DIR in /bin /usr /etc            # select is a loop that will present the n options listed after "in". You then choose the corresponding number
+do 
+    # only continue of the user has selected something
+    if [ -n $DIR ]
+    then 
+            DIR=$DIR
+            echo you have selected $DIR
+            export DIR
+            break
+    else
+            echo invalid choice
+    fi
+done
+ select is a loop that will pre

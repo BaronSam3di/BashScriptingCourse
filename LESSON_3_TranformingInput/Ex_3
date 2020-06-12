@@ -1,0 +1,9 @@
+#!/bin/bash
+#
+# Print out the day, mont and year
+echo  
+DATE=$(date +%d-%m-%y)
+echo The day is ${DATE:0:2}
+echo The Month is ${DATE:3:2}
+echo The Year is ${DATE:6:2}
+

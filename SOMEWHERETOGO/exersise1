@@ -1,0 +1,10 @@
+#!/bin/bash
+# About: This script copies the contents if the log files and copies it to a log.old file.
+#
+# Usage: Exersise1
+
+echo "Starting log file copy" 
+cp /var/log/weekly.out Dummydata.txt
+cp Dummydata.txt Dummydata.old
+rm Dummydata.txt
+echo "Job Done"

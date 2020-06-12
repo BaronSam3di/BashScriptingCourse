@@ -1,0 +1,17 @@
+#!/bin/bash
+# script that creates users using
+
+# this is one way you delcare a function
+noarg ()
+{
+    echo 'You have not provided and argument'
+    echo 'When useing this script, you need to specilfy a filename'
+    exit 2
+}
+
+if [ -z $1 ]; then
+    noarg
+else
+    file $1
+fi
+exit 0  

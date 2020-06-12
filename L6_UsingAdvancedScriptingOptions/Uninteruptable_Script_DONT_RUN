@@ -1,0 +1,13 @@
+#!/bin/bash
+# trap is used to redifine singnals in BAHS such as KILL . Have a deeper look on the "man 7 signal" page in a bash
+echo 'select a task: '
+
+
+trap "echo 'Forget it bro!' " INT
+trap "logger 'Who tried to kill me?' " KILL
+trap "logger ' Getting nasty huh? '" TERM
+
+while true
+do 
+    true
+done

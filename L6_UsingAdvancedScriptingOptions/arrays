@@ -1,0 +1,29 @@
+#!/bin/bash
+echo ' 
+
+We have created an array of names with this command 
+
+names=(linda lisa laura lori)
+
+If we wanted to see the entire array we would !!! NOT !!!! use this command "echo $names"
+'
+echo $names
+echo '
+but actually -> echo ${names[@]} 
+'
+names=(linda lisa laura lori)
+echo ' 
+
+See!
+
+but instead...
+'
+echo ${names[@]} 
+
+
+echo 'We can list the second arg with          "${names[2]}"         :' ${names[2]} 
+echo 'We can list the amount of args with      "${#names[2]}"        :' ${#names[@]} 
+echo 'We can append a new value ot the end of the array with "names[4]=lucy"' names[4]=lucy
+echo 'IF we now echo the array with "${names[@]}" ' 
+echo ${names[@]} 
+echo 'Lucy has been added! ' 

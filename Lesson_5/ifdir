@@ -1,0 +1,19 @@
+#!/bin/bash
+#
+#This is all about if and else statments
+
+echo 'The options are if, elif and else.
+
+'
+
+if [ -d $1 ] # This checks if $1 is a directory
+then 
+	echo $1 is a directory
+
+elif [ -f $1 ]
+then 
+	echo $1 is a file
+else
+	echo $1 is not a file, not a directory
+fi
+

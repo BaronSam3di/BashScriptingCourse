@@ -1,0 +1,6 @@
+#!/bin/bash
+FILE=$1
+
+while read line; do
+	echo "$(echo $line) | cut-d' ' -f 2-3"
+done < $FILE	

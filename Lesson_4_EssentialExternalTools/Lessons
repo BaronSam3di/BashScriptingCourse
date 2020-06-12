@@ -1,0 +1,60 @@
+#!/bin/bash
+# lesson in the essential external tools in Bash
+echo '----- Section 1 : grep -----'
+echo
+echo 'grep: It is a highly flexible tool to search for text patterns based on regular expresson' 
+echo 
+echo ' ----- grep commands -----'
+echo 'grep -i what * :: -i means search wihtout cse sensitivity , upper of lower case'
+echo 'grep -v what * :: -v excludes lines that match the pattern' 
+echo 'grep -r what * :: -r will do a recursive search for the pattern'
+echo 'grep -e what -e else * :: matches multiple regular expressions (-e for expression)'
+echo 'grep -A5 : shows 5 lines AFTER the matching regex'
+echo 'grep -B5 : shows 5 lines BEFORE the matching regex'
+echo
+echo '----- Section 2 : Test -----'
+echo ' test allows for the testing of many items'
+echo'
+ - expressions        :: test (ls /etc/hosts) - 
+ - strings            :: test -z $1      - check if a variable is empty of not
+ - integers           :: test $1 = 6     - test if a var has a value of 6
+ - file comparisons   :: file1 -nt file2 - test tif file 2 is NEWER THAN(-nt) file 1
+ - file properties    ;: test -x file1 	 - test if the file is executable
+ '
+
+echo 'Test used to be an external utility but it is now internal, making it more efficiant.'
+echo '____ 3 ways to test ____'
+echo 
+echo 'test -z $1 : The old way to use test'
+echo '[ -x $1] : using square brackets. Does var 1 exists? best to keep spaces either side of the cmd. It is stichter with the syntax , eg spaceing'
+echo
+echo '[[ -z $1 ]] : new way of doing it as it is more flexible with built in && and ||'
+echo ' WARNING!! : the new way of writinig with double brackets mayh have compatibility issues with different Linux flavours'
+
+echo 
+echo ' ------ Useing SED (Stream line Editor)-----'
+echo
+echo ' sed is more than a text processing utility, it is a programming language with many features'
+echo
+echo ' sed -n 5p /etc/passwd			  :: 5p means print line 5 of the file'
+echo ' sed -i 5p s/old-text/new-text/g ~/myfile   :: -i is for exstension meaning it will write to the file. substitute what and swap ot for the global at line 5'
+echo ' sed -i -e \"2d\" ~/myfile 		  :: deletes line 2'
+echo ' sed -i -e \"2d\" ~/myfile'
+echo ' sed -i -e \"2d,20,25d\" ~/myfile'
+echo
+echo ' ----- AWK -----'
+echo
+echo ' Like sed, awk is a very rich language. IN Scripts you will appreciate it as an alternative to cut to filter information from ttext files based on regular expression-based patterns.
+
+The basic usage is ; awk \"/search patern/ {Acions}\" file'
+echo
+echo ' 
+       awk -F : {print $4} /etc/passwd 		>> -F field delimiter, so this will print the 4th colum of file
+       awk -F : /user/ {print $4} /etc/passwd
+       awk -F : {print $1,$NF} /etc/passwd 	>> NF is the last field
+       awk -F : {print $3 > 500 /etc/passwd
+       awk -F : $3NF ~/bash/ /etc/passwd'
+
+echo ' ---- tr : translate ------'
+echo
+echo 'example echo hello | tr [:lower:] [:upper:]
